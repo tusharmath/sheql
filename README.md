@@ -20,7 +20,6 @@ Learn [more](https://github.com/tusharmath/sheql/wiki/Rules) about the syntax.
 2. Example - __get all the tuesdays of the year, except if they fall on the last day of the month__
     ```
     sheql 'm.sep d:l[x+2].tue'
-
     ```
 2. To use it as a package dependency, install it locally and use `require 'sheql'`.
 
