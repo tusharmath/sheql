@@ -47,7 +47,6 @@ module.exports = ->
     obj.weekCount = (startDate, endDate) ->
         count = 0
         date = startDate
-        # firstDay = startDate.getDay()
         while date.valueOf() <= endDate.valueOf()
             count++ if date.getDay() is @startDay
             date = Days.nextDate date
