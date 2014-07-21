@@ -62,9 +62,6 @@ describe "getWeeks", ->
             wk.startDay = 1
             wk.weekCount(dStart, dEnd).should.equal 53
 
-
-
-
         it "should return week count", ->
             dStart = new Date 2014, 1, 3
             dEnd = new Date 2014, 1, 20
