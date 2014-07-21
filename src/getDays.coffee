@@ -31,8 +31,8 @@ module.exports = ->
 
     obj.dayCount = (startDate, endDate) ->
         one_day = 1000*60*60*24
-        startDate_ms = startDate.getTime()
-        endDate_ms = endDate.getTime()
+        startDate_ms = startDate.valueOf()
+        endDate_ms = endDate.valueOf()
         difference_ms = endDate_ms - startDate_ms
-        return 1+Math.round difference_ms/one_day
+        return 1+difference_ms/one_day
     obj
