@@ -38,19 +38,34 @@ module.exports = ->
                     type: 'week'
                     props: [ Days.dayCount(wStartDate, date).toString() + 'd']
 
-
             #Go to next date
             date = Days.nextDate date
         weekList
 
+    obj.getIncompleteStartDays = (date) ->
+        dateDay = date.getDay()
+        return 7 - (dateDay-@startDay) if @startDay < dateDay
+        return @startDay - dateDay if @startDay > dateDay
+        return 0
+
+    obj.getIncompleteEndDays = (date) ->
+        dateDay = date.getDay()
+        return 1 + dateDay - @startDay if @startDay < dateDay
+        return 8 - (@startDay - dateDay) if @startDay > dateDay
+        return 1
 
     obj.weekCount = (startDate, endDate) ->
         count = 0
         date = startDate
-        while date.valueOf() <= endDate.valueOf()
-            count++ if date.getDay() is @startDay
-            date = Days.nextDate date
+        days = Days.dayCount startDate, endDate
+        incompleteStartDays = @getIncompleteStartDays startDate
+        incompleteEndDays = @getIncompleteEndDays endDate
+        days = days - incompleteStartDays - incompleteEndDays
 
-        if startDate.getDay() is @startDay then count else count + 1
+        count = days/7
+
+        count++ if incompleteStartDays > 0
+        count++ if incompleteEndDays > 0
+        count
 
     obj

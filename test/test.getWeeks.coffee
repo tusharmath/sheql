@@ -51,6 +51,64 @@ describe "getWeeks", ->
         it "should return an array", ->
             wk.getCollectionForYear(2014).length.should.equal 53
 
+    describe "getIncompleteEndDays", ->
+        it "should return number of days", ->
+            wk.getIncompleteEndDays new Date 2014, 0, 28
+            .should.equal 3
+
+            wk.getIncompleteEndDays new Date 2014, 1, 28
+            .should.equal 6
+
+            wk.getIncompleteEndDays new Date 2014, 1, 2
+            .should.equal 1
+
+            wk.getIncompleteEndDays new Date 2014, 1, 27
+            .should.equal 5
+
+
+        it "should handle variable startDay", ->
+            wk.startDay = 4
+            wk.getIncompleteEndDays new Date 2014, 1, 28
+            .should.equal 2
+
+            wk.startDay = 5
+            wk.getIncompleteEndDays new Date 2014, 1, 26
+            .should.equal 6
+
+
+    describe "getIncompleteStartDays", ->
+        it "should return number of days", ->
+            wk.getIncompleteStartDays new Date 2014, 3, 2
+            .should.equal 4
+
+            wk.getIncompleteStartDays new Date 2014, 0, 2
+            .should.equal 3
+
+            wk.getIncompleteStartDays new Date 2014, 0, 5
+            .should.equal 0
+
+            wk.getIncompleteStartDays new Date 2014, 1, 3
+            .should.equal 6
+
+            wk.getIncompleteStartDays new Date 2000, 0, 1
+            .should.equal 1
+
+            wk.getIncompleteStartDays new Date 2014, 5, 6
+            .should.equal 2
+
+            wk.getIncompleteStartDays new Date 2014, 5, 3
+            .should.equal 5
+
+        it "should handle variable startDay", ->
+            wk.startDay = 4
+            wk.getIncompleteStartDays new Date 2014, 0, 2
+            .should.equal 0
+
+            wk.startDay = 3
+            wk.getIncompleteStartDays new Date 2014, 5, 3
+            .should.equal 1
+
+
 
     describe "weekCount", ->
         it "should exist", ->
