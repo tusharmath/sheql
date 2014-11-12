@@ -11,7 +11,7 @@ SHEQL is a schema less solution to the problem of storing repeated events in a c
 3. A single change is required to update repeated events.
 4. Platform independent.
 
-Learn [more](https://github.com/tusharmath/sheql/wiki/Rules) about the syntax.
+[Learn more about the syntax](https://github.com/tusharmath/sheql/wiki/Rules).
 
 
 ##How to use from cli
