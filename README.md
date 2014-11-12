@@ -33,8 +33,3 @@ var endDate = new Date(2110, 4,15);
 var startDayOfWeek = 1; //Monday
 sheql.getDates('m.sep d:l[x+2].tue', startDate, endDate, startDayOfWeek);
 ```
-
-
-Contributors
-[@atsiddiqui](https://github.com/atsiddiqui)
-[@raj-nt](https://github.com/raj-nt)
