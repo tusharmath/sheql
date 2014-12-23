@@ -5,9 +5,11 @@ var dateCollection, endDate, endYear, i, nomnom, opts, sh, startDate, startYear,
 sh = require('../lib/executor')();
 nomnom = require('nomnom');
 
-startYear = new Date().getFullYear();
+startYear = new Date()
+	.getFullYear();
 
-endYear = new Date().getFullYear();
+endYear = new Date()
+	.getFullYear();
 
 startDate = new Date(startYear, 0, 1);
 
@@ -18,17 +20,20 @@ toDateCallback = function (str) {
 };
 
 opts = nomnom.option('startDate', {
-	"default": startDate,
-	transform: toDateCallback,
-	help: "Eg: 2010-01-23 (YYYY-MM-DD).Default:"
-}).option('endDate', {
-	"default": endDate,
-	transform: toDateCallback,
-	help: "Eg: 2010-01-23 (YYYY-MM-DD). Default:"
-}).option('startOfWeek', {
-	"default": 0,
-	help: "Eg: 0 for sun, 1 for mon etc. Default:"
-}).parse();
+		"default": startDate,
+		transform: toDateCallback,
+		help: "Eg: 2010-01-23 (YYYY-MM-DD).Default:"
+	})
+	.option('endDate', {
+		"default": endDate,
+		transform: toDateCallback,
+		help: "Eg: 2010-01-23 (YYYY-MM-DD). Default:"
+	})
+	.option('startOfWeek', {
+		"default": 0,
+		help: "Eg: 0 for sun, 1 for mon etc. Default:"
+	})
+	.parse();
 
 if (opts._.length === 0) {
 	return console.log("Eg: $ sheql \"y.53w m:n[2x] d.sat\" ");
@@ -43,8 +48,8 @@ for (_i = 0, _len = dateCollection.length; _i < _len; _i++) {
 
 console.log("\nTotal:\t" + dateCollection.length + " dates");
 
-console.log("From:\t" + (startDate.toDateString()));
+console.log("From:\t" + (opts.startDate.toDateString()));
 
-console.log("To:\t" + (endDate.toDateString()));
+console.log("To:\t" + (opts.endDate.toDateString()));
 
 console.log("Week:\tSunday");
