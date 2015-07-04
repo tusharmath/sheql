@@ -14,29 +14,7 @@ SHEQL is a schema less solution to the problem of storing repeated events in a c
 [Learn more about the syntax](https://github.com/tusharmath/sheql/wiki/Rules).
 
 
-##How to use from cli
-
-1. run `npm install sheql -g`.
-2. Example - __get all the tuesdays of the year, except if they fall on the last day of the month__
-    ```
-    sheql 'm.sep d:l[x+2].tue'
-    ```
-2. To use it as a package dependency, install it locally and use `require 'sheql'`.
-
-
-##Using as a dependency
-
-```js
-var sheql = require('sheql');
-var startDate = new Date(2010, 1,10);
-var endDate = new Date(2110, 4,15);
-var startDayOfWeek = 1; //Monday
-sheql.getDates('m.sep d:l[x+2].tue', startDate, endDate, startDayOfWeek);
-```
-
----
-#Documentation
-##Elements
+#Elements
 They are analogous to tag names in HTML.
 
 1. `y` - Representing years
@@ -47,7 +25,7 @@ They are analogous to tag names in HTML.
 
 4. `d` - Representing days
 
-##Element Properties
+#Element Properties
 Properties are like css classes applied on tags. Each tag has its own set of classes (properties as we call them here).
 
 ###Years
@@ -207,5 +185,25 @@ m.jan d!fri
 
 ```css
 m:n[2x] d.sat:l[x+2]:n[2x+1]
+```
+
+##How to use from cli
+
+1. run `npm install sheql -g`.
+2. Example - __get all the tuesdays of the year, except if they fall on the last day of the month__
+    ```
+    sheql 'm.sep d:l[x+2].tue'
+    ```
+2. To use it as a package dependency, install it locally and use `require 'sheql'`.
+
+
+##Using as a dependency
+
+```js
+var sheql = require('sheql');
+var startDate = new Date(2010, 1,10);
+var endDate = new Date(2110, 4,15);
+var startDayOfWeek = 1; //Monday
+sheql.getDates('m.sep d:l[x+2].tue', startDate, endDate, startDayOfWeek);
 ```
 
