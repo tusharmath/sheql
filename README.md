@@ -1,4 +1,6 @@
 #Schedule Query Langauge
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/tusharmath/sheql.svg)](https://greenkeeper.io/)
 ![alt text](https://raw.githubusercontent.com/practo/sheql/master/public/images/scheql.png)
 
 
