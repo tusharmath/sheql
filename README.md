@@ -1,10 +1,10 @@
-#Schedule Query Langauge
+# Schedule Query Langauge
 ![alt text](https://raw.githubusercontent.com/practo/sheql/master/public/images/scheql.png)
 
 
 SHEQL is a schema less solution to the problem of storing repeated events in a calendar. It is inspired by CSS selectors.
 
-#Features
+## Features
 
 1. A Far More powerful and customizable logic for repetition can be written.
 2. A Schemaless Architecture.
@@ -14,7 +14,7 @@ SHEQL is a schema less solution to the problem of storing repeated events in a c
 [Learn more about the syntax](#examples).
 
 
-#Elements
+## Elements
 They are analogous to tag names in HTML.
 
 1. `y` - Representing years
@@ -25,10 +25,10 @@ They are analogous to tag names in HTML.
 
 4. `d` - Representing days
 
-#Element Properties
+## Element Properties
 Properties are like css classes applied on tags. Each tag has its own set of classes (properties as we call them here).
 
-###Years
+### Years
 
 1. `365d`, `366d` - Filters all the years in the given range which have 365 days or 366 days (AKA leap year)
 
@@ -36,7 +36,7 @@ Properties are like css classes applied on tags. Each tag has its own set of cla
 
 3. `2015` - Filter based on the year value.
 
-###Months
+### Months
 
 1. `31d`, `30d`, `29d`, `28d` - Filters all the the months based on the total days that are in that month.
 
@@ -44,20 +44,20 @@ Properties are like css classes applied on tags. Each tag has its own set of cla
 
 3. `jan` ... `dec` - Filtering based on the month name.
 
-###Weeks
+### Weeks
 1. `7d`, `4d` - Filter outs weeks based on the total number of days in it.
 
-###Days
+### Days
 
 1. `21` - Filter based on the date value.
 
 2. `sat`, `sun`, ... `fri` - Filter days on the day of the week.
 
-##Filters
+## Filters
 
 Filters can be applied on any type of element. They can use the element's properties also.
 
-###Dot notation 
+### Dot notation 
 Use it to filter out elements that have the specified property.
 
 ```css
@@ -65,13 +65,13 @@ y.365d /*Selects non-leap years*/
 m.jan  /*Select the month January*/
 ```
 
-###exclamation notation
+### exclamation notation
 Use it to filter out elements that do NOT have the specified property.
 ```css
 m!jan /*all months except january*/
 ```
 
-###nth element
+### nth element
 Use it to filter out the nth element
 ```css
 d:n[x+3] /*All days except the first 2*/
@@ -79,13 +79,13 @@ d:n[3]   /*3 day only*/
 d:n[2x]  /*All alternate days*/
 ```
 
-###lth element
+### lth element
 Use it to filter out the nth element for the last element.
 ```css
 d:l[x+3] /*All days except the last 2*/
 ```
 
-#Examples
+# Examples
 
 
 **Yearly repeated on the 45th day**
@@ -187,7 +187,7 @@ m.jan d!fri
 m:n[2x] d.sat:l[x+2]:n[2x+1]
 ```
 
-##How to use from cli
+## How to use from cli
 
 1. run `npm install sheql -g`.
 2. Example - __get all the tuesdays of the year, except if they fall on the last day of the month__
