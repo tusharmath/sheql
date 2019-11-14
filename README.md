@@ -197,7 +197,7 @@ m:n[2x] d.sat:l[x+2]:n[2x+1]
 2. To use it as a package dependency, install it locally and use `require 'sheql'`.
 
 
-##Using as a dependency
+## Using as a dependency
 
 ```js
 var sheql = require('sheql');
